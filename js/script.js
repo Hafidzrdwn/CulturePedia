@@ -69,6 +69,7 @@ containerGallery.addEventListener("click", function (e) {
     });
     e.target.classList.add("shadow");
   }
+
 });
 
 //INFO SECTION
@@ -133,4 +134,21 @@ right.addEventListener("click", function () {
   document.querySelector(".control .selected").classList.remove("selected");
   indicatorParent.children[index].classList.add("selected");
   slider.style.transform = "translateX(" + index * -25 + "%)";
+});
+
+//MESSAGES FORM
+const submit = document.querySelector('.input-btn > a');
+const button = document.querySelector('.input-btn > button');
+const liquid = document.querySelector('.input-btn a .liquid');
+
+submit.addEventListener('click', function(e){
+e.preventDefault()
+});
+
+button.addEventListener('mouseenter',function(){
+  liquid.style.top = '-70px';
+});
+
+button.addEventListener('mouseleave',function(){
+  liquid.style.top ='-38px';
 });

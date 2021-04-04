@@ -224,26 +224,36 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8">
+            <div class="my-alert alert alert-success alert-dismissible fade show d-none" role="alert">
+              <strong>Terimakasih!</strong> Pesan anda sudah kami terima
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <div class="messages-form">
               <h1 id="messages">Beri Saran dan Pesan</h1>
-              <form action="">
+              <form name="culturepedia-messages-form" autocomplete="off">
                 <div class="input-box">
-                  <input type="text" required="required" />
+                  <input type="text" required="required" name="nama"/>
                   <span>Nama Lengkap</span>
                 </div>
                 <div class="input-box">
-                  <input type="text" required="required" />
+                  <input type="text" required="required" name="email"/>
                   <span>Email Anda</span>
                 </div>
+                <p style="color: gray; font-size: 13px;">form email harus mengandung "@"</p>
                 <div class="input-box">
-                  <textarea required="required"></textarea>
+                  <textarea required="required" name="pesan"></textarea>
                   <span>Ketik Saran atau Pesan</span>
                 </div>
-                <div class="input-btn mt-3">
-                  <a href="#">
+                <div class=" input-btn mt-3">
+                  <a class="btn-Kirim" href="#">
                     <span>Kirim</span>
                     <div class="liquid"></div>
                   </a>
+                  <button type="submit">kirim</button>
+                  <button class="btn btn-loading d-none" type="button" >
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                  </button>
                 </div>
               </form>
             </div>
@@ -279,6 +289,28 @@
     <!-- END FOOTER -->
     <!-- My JS -->
     <script src="js/script.js"></script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxHQCCYHtJ8ablBdq-Srhg5JGQgHIyWXrQ5Wj_QXlQI1fbg7kexvSwSBNIIlcxP-w3W/exec'
+      const form = document.forms['culturepedia-messages-form']
+      const btnKirim = document.querySelector('.btn-Kirim');
+      const btnLoading = document.querySelector('.btn-loading');
+      const success = document.querySelector('.my-alert');
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('invisible');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('invisible');
+            success.classList.toggle('d-none');
+            form.reset()
+            console.log('Success!', response)})
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
 
