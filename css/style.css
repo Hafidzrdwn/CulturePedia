@@ -359,7 +359,7 @@ body {
 .slider section img {
   border-radius: 100%;
   margin-bottom: 5px;
-  width: 250px;
+  width: 150px;
   height: auto;
 }
 
@@ -944,6 +944,13 @@ body {
     text-align: center;
     margin: 150px;
     font-style: italic;
+  }
+
+  .slider section img {
+    border-radius: 100%;
+    margin-bottom: 5px;
+    width: 250px;
+    height: auto;
   }
 
   .gallery-section .gallery-item {
