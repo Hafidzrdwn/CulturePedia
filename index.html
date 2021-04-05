@@ -224,9 +224,8 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8">
-            <div class="my-alert alert alert-success alert-dismissible fade show d-none" role="alert">
-              <strong>Terimakasih!</strong> Pesan anda sudah kami terima
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="my-alert alert alert-success d-none" role="alert">
+              <strong>Terimakasih</strong> pesan anda sudah kami terima
             </div>
             <div class="messages-form">
               <h1 id="messages">Beri Saran dan Pesan</h1>
@@ -305,7 +304,10 @@
           .then(response => {
             btnLoading.classList.toggle('d-none');
             btnKirim.classList.toggle('invisible');
-            success.classList.toggle('d-none');
+            success.classList.remove('d-none');
+            setTimeout(() => {
+              success.classList.add('d-none');
+            }, 4000);
             form.reset()
             console.log('Success!', response)})
           .catch(error => console.error('Error!', error.message))
