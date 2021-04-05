@@ -6,40 +6,137 @@
 
 /* CSS */
 body {
-  background-color: salmon;
   font-family: "Poppins";
 }
 
-.container > .navbar-brand {
+.container-fluid > .navbar-brand {
   font-weight: bold;
   font-style: italic;
+  color: white;
+}
+
+.navbar {
+  background: #212529;
+}
+
+.nav-link {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 6px 10px;
+  border-radius: 25px;
+  color: white;
+  transition: background-color 0.5s;
+}
+
+.nav-link:hover {
+  background: grey;
+  color: #212529;
+}
+
+.active {
+  background: white;
+  color: #212529 !important;
+  border-radius: 25px;
+}
+
+.navbar-collapse {
+  transition: 0.8s;
+}
+
+.container-fluid > .navbar-toggler > .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.btn-home {
+  text-decoration: none;
+  color: white;
+  padding: 6px 10px;
+  background-color: #0063e6;
+  text-align: center;
+  border-radius: 20px;
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.btn-home:hover {
+  color: white;
 }
 
 section {
-  background-color: salmon;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.nav-link {
-  text-decoration: none;
-  width: 300px;
-  text-align: center;
-  color: white;
-  font-size: 14px;
-  background-color: #0063e6;
-  padding: 5px;
-  border-radius: 20px;
-  transition: background-color 0.5s;
-}
-
-.nav-link:hover {
-  color: black;
-}
-
 section h1 {
   font-size: 55px;
   font-weight: bold;
+  color: white;
+}
+
+#jawa {
+  background-image: url(../images/jawa.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#sumatra {
+  background-image: url(../images/sumatra.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#kalimantan {
+  background-image: url(../images/kalimantan.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#sulawesi {
+  background-image: url(../images/sulawesi.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#papua {
+  background-image: url(../images/papua.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 992px) {
+  .nav-link {
+    margin: 0 35px;
+    color: white;
+  }
+
+  .nav-link:hover {
+    color: white !important;
+    background: none;
+  }
+
+  .active {
+    background: white;
+    color: #212529 !important;
+    border-radius: 0;
+  }
+
+  .btn-home {
+    text-decoration: none;
+    color: white;
+    margin: 3px 0 0 40px;
+    width: 150px;
+    padding: 5px 25px;
+    background-color: #0063e6;
+    text-align: center;
+    border-radius: 25px;
+  }
+
+  .btn-home:hover {
+    color: #212529;
+    background: #491de7;
+  }
 }
